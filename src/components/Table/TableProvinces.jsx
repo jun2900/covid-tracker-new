@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "reactstrap";
 import { fetchProvinces } from "../../api/";
+import NumberFormat from "react-number-format";
 
 const TableProvinces = () => {
   const [fetchedProvinces, setFetchedProvinces] = useState([]);
@@ -28,9 +29,27 @@ const TableProvinces = () => {
           {fetchedProvinces.map((province) => (
             <tr key={province.name}>
               <td>{province.name}</td>
-              <td>{province.confirmed}</td>
-              <td>{province.recovered}</td>
-              <td>{province.deaths}</td>
+              <td>
+                <NumberFormat
+                  value={province.confirmed}
+                  thousandSeparator={true}
+                  displayType={"text"}
+                />
+              </td>
+              <td>
+                <NumberFormat
+                  value={province.recovered}
+                  thousandSeparator={true}
+                  displayType={"text"}
+                />
+              </td>
+              <td>
+                <NumberFormat
+                  value={province.deaths}
+                  thousandSeparator={true}
+                  displayType={"text"}
+                />
+              </td>
             </tr>
           ))}
         </tbody>
