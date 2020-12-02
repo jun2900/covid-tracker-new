@@ -14,7 +14,7 @@ const TableProvinces = () => {
 
   console.log(fetchedProvinces);
   return (
-    <div>
+    <div style={{ width: "60%", marginLeft: "auto", marginRight: "auto" }}>
       <Table>
         <thead>
           <tr>
