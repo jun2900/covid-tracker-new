@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchDataGlobal, fetchDataIndonesia } from "./api";
 import styles from "./App.module.css";
-import { Cards } from "./components";
+import { Cards, TableProvinces } from "./components";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const App = () => {
@@ -37,6 +37,9 @@ const App = () => {
       <Switch>
         <Route path="/indonesia">
           <Cards data={dataIndonesia} text="Jumlah Kasus Indonesia" />
+        </Route>
+        <Route path="/provinsi">
+          <TableProvinces />
         </Route>
         <Route path="/">
           <Cards data={dataGlobal} text="Jumlah Kasus Dunia" />
