@@ -1,8 +1,9 @@
 import React from "react";
 import { Card, CardTitle, Row, Col } from "reactstrap";
 import styles from "./Cards.module.css";
+import NumberFormat from "react-number-format"
 
-const Cards = ({ data: { confirmed, recovered, deaths }, country }) => {
+const Cards = ({ data: { confirmed, recovered, deaths }, text }) => {
   if (!confirmed) {
     return "";
   }
@@ -10,7 +11,7 @@ const Cards = ({ data: { confirmed, recovered, deaths }, country }) => {
   return (
     <div className={styles.container}>
       <br />
-      {/* <h2>{country ? `Negara: ${country}` : `Global`}</h2> */}
+      <h2>{text}</h2>
       <Row>
         <Col xs="12" md="4">
           <Card
@@ -22,7 +23,13 @@ const Cards = ({ data: { confirmed, recovered, deaths }, country }) => {
             <CardTitle>
               <h5>Positif</h5>
             </CardTitle>
-            <h5>{confirmed.value}</h5>
+					<h5>
+              <NumberFormat
+                value={confirmed.value ? confirmed.value : confirmed}
+                thousandSeparator={true}
+                displayType={"text"}
+              />
+          </h5>
           </Card>
         </Col>
         <Col xs="12" md="4">
@@ -36,7 +43,13 @@ const Cards = ({ data: { confirmed, recovered, deaths }, country }) => {
             <CardTitle>
               <h5>Meninggal</h5>
             </CardTitle>
-            <h5>{deaths.value}</h5>
+						<h5>
+              <NumberFormat
+                value={deaths.value ? deaths.value : deaths}
+                thousandSeparator={true}
+                displayType={"text"}
+              />
+            </h5>
           </Card>
         </Col>
         <Col xs="12" md="4">
@@ -50,7 +63,13 @@ const Cards = ({ data: { confirmed, recovered, deaths }, country }) => {
             <CardTitle>
               <h5>Sembuh</h5>
             </CardTitle>
-            <h5>{recovered.value}</h5>
+						<h5>
+              <NumberFormat
+                value={recovered.value ? recovered.value : recovered}
+                thousandSeparator={true}
+                displayType={"text"}
+              />
+            </h5>
           </Card>
         </Col>
       </Row>
