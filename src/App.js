@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchData } from "./api";
+import styles from "./App.module.css";
+import { Cards } from "./components";
 
 const App = () => {
   const [data, setData] = useState({});
@@ -16,8 +18,9 @@ const App = () => {
 
   console.log(data);
   return (
-    <div>
-      <p>Hello World</p>
+    <div className={styles.container}>
+      <h1>Covid Tracker</h1>
+      <Cards data={data} />
     </div>
   );
 };
