@@ -13,7 +13,8 @@ const TableProvinces = () => {
     fetchApi();
   }, [setFetchedProvinces]);
 
-  console.log(fetchedProvinces);
+  fetchedProvinces.pop()
+  
   return (
     <div style={{ width: "60%", marginLeft: "auto", marginRight: "auto" }}>
       <Table>
